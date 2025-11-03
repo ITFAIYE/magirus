@@ -8,11 +8,7 @@
       padding: 0;
       box-sizing: border-box;
     }
-/* Root değişkenleri */
-:root {
-  --gradient-1: linear-gradient(135deg, #c41e3a 0%, #8b0000 100%);
-  --shadow-lg: 0 10px 40px rgba(0, 0, 0, 0.15);
-}
+
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background: linear-gradient(135deg, #fafafa 0%, #f0f0f0 100%);
@@ -174,46 +170,6 @@
       align-items: center;
       gap: 5px;
     }
-/* Footer */
-    footer {
-      background: var(--gradient-1);
-      color: white;
-      padding: 32px 24px;
-      margin-top: 48px;
-      box-shadow: var(--shadow-lg);
-    }
-
-    .footer-content {
-      max-width: 1400px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 32px;
-      text-align: center;
-    }
-
-    .footer-section h3 {
-      font-size: 1.2rem;
-      font-weight: 700;
-      margin-bottom: 16px;
-      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-    }
-
-    .footer-section p {
-      font-size: 0.95rem;
-      line-height: 1.8;
-      color: rgba(255, 255, 255, 0.9);
-    }
-
-    .footer-bottom {
-      max-width: 1400px;
-      margin: 32px auto 0;
-      padding-top: 24px;
-      border-top: 1px solid rgba(255, 255, 255, 0.2);
-      text-align: center;
-      font-size: 0.9rem;
-      color: rgba(255, 255, 255, 0.8);
-    }
 
     .page-nav-btn:hover:not(:disabled) {
       background: #c41e3a;
@@ -258,22 +214,94 @@
       box-shadow: 0 2px 10px rgba(196, 30, 58, 0.1);
     }
 
-    /* İçerik Alanı */
-    .content-wrapper {
-      max-width: 1200px;
-      margin: 20px auto;
-      padding: 0 20px;
-    }
+/* İçerik Alanı */
+.content-wrapper {
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 0 20px;
+}
 
-    .tab-content {
-      display: none;
-      animation: fadeIn 0.5s ease;
-      background: white;
-      border-radius: 15px;
-      padding: 30px;
-      box-shadow: 0 10px 40px rgba(0,0,0,0.1);
-      min-height: 500px;
-    }
+.tab-content {
+  display: none;
+  animation: fadeIn 0.5s ease;
+  background: white;
+  border-radius: 15px;
+  padding: 30px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+  min-height: 500px;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Genel resim stili */
+.tab-content img {
+  width: 100%;
+  max-width: 950px;
+  display: block;
+  margin: 0 auto;
+  border-radius: 12px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+}
+
+/* Responsive görsel yönetimi */
+.mobile-image {
+  display: none !important;
+}
+
+.desktop-image {
+  display: block !important;
+}
+
+@media (max-width: 768px) {
+  .mobile-image {
+    display: block !important;
+  }
+@media (max-width: 768px) {
+  .logo-left,
+  .logo-right {
+    display: none !important;
+  }
+}
+
+  
+  .desktop-image {
+    display: none !important;
+  }
+
+  .content-wrapper {
+    padding: 0 10px;
+  }
+  
+  .tab-content {
+    padding: 15px;
+    border-radius: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .content-wrapper {
+    padding: 0 5px;
+  }
+  
+  .tab-content {
+    padding: 10px;
+    border-radius: 8px;
+  }
+}
+
 
     .tab-content.active {
       display: block;
@@ -290,7 +318,6 @@
       }
     }
 
-    /* Genel resim stili */
     .tab-content img {
       width: 100%;
       max-width: 950px;
@@ -298,45 +325,6 @@
       margin: 0 auto;
       border-radius: 12px;
       box-shadow: 0 5px 20px rgba(0,0,0,0.15);
-    }
-
-    /* Responsive görsel yönetimi */
-    .mobile-image {
-      display: none !important;
-    }
-
-    .desktop-image {
-      display: block !important;
-    }
-
-    @media (max-width: 768px) {
-      .mobile-image {
-        display: block !important;
-      }
-      
-      .desktop-image {
-        display: none !important;
-      }
-
-      .content-wrapper {
-        padding: 0 10px;
-      }
-      
-      .tab-content {
-        padding: 15px;
-        border-radius: 10px;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .content-wrapper {
-        padding: 0 5px;
-      }
-      
-      .tab-content {
-        padding: 10px;
-        border-radius: 8px;
-      }
     }
 
     /* İnteraktif Elemanlar */
@@ -419,6 +407,25 @@
       pointer-events: none;
     }
 
+/* Responsive görsel yönetimi */
+.mobile-image {
+  display: none;
+}
+
+.desktop-image {
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .mobile-image {
+    display: block;
+  }
+  
+  .desktop-image {
+    display: none;
+  }
+}
+
     .tooltip.active {
       opacity: 1;
       visibility: visible;
@@ -435,47 +442,6 @@
       border-right: 8px solid transparent;
       border-bottom: 8px solid #1a202c;
     }
-/* Footer */
-    footer {
-      background: var(--gradient-1);
-      color: white;
-      padding: 32px 24px;
-      margin-top: 48px;
-      box-shadow: var(--shadow-lg);
-    }
-
-    .footer-content {
-      max-width: 1400px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 32px;
-      text-align: center;
-    }
-
-    .footer-section h3 {
-      font-size: 1.2rem;
-      font-weight: 700;
-      margin-bottom: 16px;
-      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-    }
-
-    .footer-section p {
-      font-size: 0.95rem;
-      line-height: 1.8;
-      color: rgba(255, 255, 255, 0.9);
-    }
-
-    .footer-bottom {
-      max-width: 1400px;
-      margin: 32px auto 0;
-      padding-top: 24px;
-      border-top: 1px solid rgba(255, 255, 255, 0.2);
-      text-align: center;
-      font-size: 0.9rem;
-      color: rgba(255, 255, 255, 0.8);
-    }
-
 
     .info-panel {
       max-width: 950px;
@@ -531,90 +497,21 @@
       color: #4a5568;
     }
 
-    /* Mobil Menü Butonu Animasyonları */
-    @keyframes pulseGlowMenu {
-      0%, 100% {
-        transform: scale(1);
-        box-shadow: 0 0 0 rgba(255, 80, 80, 0),
-                    0 0 20px rgba(255, 255, 255, 0.3);
-      }
-      50% {
-        transform: scale(1.15);
-        box-shadow: 0 0 25px rgba(255, 80, 80, 0.9),
-                    0 0 35px rgba(255, 255, 255, 0.6);
-      }
-    }
-
-    @keyframes ripple {
-      0% {
-        box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7),
-                    0 0 0 0 rgba(255, 80, 80, 0.7);
-      }
-      100% {
-        box-shadow: 0 0 0 15px rgba(255, 255, 255, 0),
-                    0 0 0 30px rgba(255, 80, 80, 0);
-      }
-    }
-
-    @keyframes shimmer {
-      0%, 100% { opacity: 0; }
-      50% { opacity: 0.5; }
-    }
-
     /* Mobil Menü Butonu */
     .mobile-menu-toggle {
       display: none;
-      animation: pulseGlowMenu 1.5s ease-in-out infinite,
-                 ripple 2s ease-out infinite;
-      background: linear-gradient(135deg, #ff1744, #c41e3a, #8b0000);
+      background: rgba(255,255,255,0.2);
+      border: 2px solid white;
+      border-radius: 8px;
+      padding: 8px 12px;
       color: white;
-      padding: 12px 16px;
-      border-radius: 12px;
-      border: 2.5px solid rgba(255, 255, 255, 1);
-      box-shadow:
-        0 6px 20px rgba(0, 0, 0, 0.4),
-        0 0 30px rgba(255, 80, 80, 0.6),
-        inset 0 2px 0 rgba(255,255,255,0.3);
-      font-size: 1.2rem;
-      font-weight: 700;
-      line-height: 1;
+      font-size: 1.5rem;
       cursor: pointer;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-      -webkit-tap-highlight-color: transparent;
-      position: relative;
-      z-index: 1002;
+      transition: all 0.3s ease;
     }
 
-    .mobile-menu-toggle::before {
-      content: '';
-      position: absolute;
-      top: -4px;
-      left: -4px;
-      right: -4px;
-      bottom: -4px;
-      background: linear-gradient(45deg, #ff1744, #ffd700, #ff1744);
-      border-radius: 14px;
-      z-index: -1;
-      opacity: 0;
-      animation: shimmer 3s ease-in-out infinite;
-    }
-
-    .mobile-menu-toggle:hover,
-    .mobile-menu-toggle:focus {
-      transform: scale(1.1);
-      box-shadow:
-        0 8px 25px rgba(0,0,0,0.4),
-        0 0 40px rgba(255, 80, 80, 0.8);
-      outline: none;
-    }
-
-    .mobile-menu-toggle:active {
-      transform: scale(0.95);
-    }
-
-    .mobile-menu-toggle:focus-visible {
-      outline: 3px solid rgba(255,255,255,0.8);
-      outline-offset: 4px;
+    .mobile-menu-toggle:hover {
+      background: rgba(255,255,255,0.3);
     }
 
     /* Responsive Tasarım */
@@ -629,10 +526,6 @@
 
       .title-section h2 {
         font-size: 0.8rem;
-      }
-
-      .logo-left, .logo-right {
-        display: none !important;
       }
 
       .logo-left img, .logo-right img {
@@ -677,10 +570,12 @@
         border-bottom-color: transparent;
       }
 
+      /* Masaüstü alt navigasyonu mobilde gizle */
       .sub-nav {
         display: none !important;
       }
 
+      /* Mobilde içerik içi navigasyonu göster */
       .content-page-nav {
         display: flex;
       }
@@ -697,29 +592,6 @@
         max-width: 320px;
         left: 50% !important;
         transform: translateX(-50%);
-      }
-   footer {
-        padding: 24px 16px;
-        margin-top: 32px;
-      }
-
-      .footer-content {
-        grid-template-columns: 1fr;
-        gap: 24px;
-      }
-
-      .footer-section h3 {
-        font-size: 1.1rem;
-      }
-
-      .footer-section p {
-        font-size: 0.9rem;
-      }
-
-      .footer-bottom {
-        margin-top: 24px;
-        padding-top: 20px;
-        font-size: 0.85rem;
       }
 
       .mobile-overlay {
@@ -738,9 +610,75 @@
       }
     }
 
+/* Birleştirilmiş pulse+glow animasyonu (önceki) */
+@keyframes pulseGlowMenu {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 rgba(255, 80, 80, 0);
+  }
+  50% {
+    transform: scale(1.12);
+    box-shadow: 0 0 18px rgba(255, 80, 80, 0.8);
+  }
+}
+
+/* Buton stili - kenarlık eklendi */
+.mobile-menu-toggle {
+  animation: pulseGlowMenu 1.8s ease-in-out infinite;
+  background: linear-gradient(135deg, #c41e3a, #8b0000);
+  color: white;
+  padding: 10px 14px;
+  border-radius: 10px;
+
+  /* İnce beyaz çizgi için: */
+  border: 1.5px solid rgba(255, 255, 255, 0.95);
+
+  /* Daha belirgin görünmesi için hafif iç gölge & dış gölge */
+  box-shadow:
+    0 4px 12px rgba(0, 0, 0, 0.25),   /* mevcut dış gölge */
+    inset 0 1px 0 rgba(255,255,255,0.06); /* çok hafif parlama - gerçekçi yüzey */
+
+  font-size: 1.15rem;
+  font-weight: 600;
+  line-height: 1;
+  cursor: pointer;
+  transition: transform 0.18s ease, box-shadow 0.18s ease, opacity 0.18s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Hover / aktif etkisi (dokunmatik cihazlarda genelde hover yok ama masaüstünde işe yarar) */
+.mobile-menu-toggle:hover,
+.mobile-menu-toggle:focus {
+  transform: scale(1.06);
+  box-shadow:
+    0 6px 18px rgba(0,0,0,0.32),
+    0 0 22px rgba(255, 80, 80, 0.45);
+  outline: none;
+}
+
+/* Odaklandığında görülebilir bir outline (erişilebilirlik için iyi) */
+.mobile-menu-toggle:focus-visible {
+  outline: 2px solid rgba(255,255,255,0.6);
+  outline-offset: 3px;
+}
+
+/* Daha küçük ekranlara göre boyutlandırma (isteğe bağlı) */
+@media (max-width: 480px) {
+  .mobile-menu-toggle {
+    padding: 8px 12px;
+    font-size: 1rem;
+    border-radius: 9px;
+    border-width: 1.2px;
+  }
+}
+
     @media (max-width: 480px) {
       .title-section h1 {
         font-size: 1.1rem;
+      }
+
+      .logo-left, .logo-right {
+        display: none;
       }
 
       .marker {
@@ -758,24 +696,6 @@
       .page-indicator {
         width: 100%;
         text-align: center;
-      }
-
-      .mobile-menu-toggle {
-        padding: 14px 18px;
-        font-size: 1.1rem;
-        border-radius: 12px;
-        border-width: 2.5px;
-        box-shadow:
-          0 8px 25px rgba(0, 0, 0, 0.5),
-          0 0 35px rgba(255, 80, 80, 0.8),
-          inset 0 2px 0 rgba(255,255,255,0.4);
-      }
-      
-      .mobile-menu-toggle::before {
-        top: -5px;
-        left: -5px;
-        right: -5px;
-        bottom: -5px;
       }
     }
 
@@ -1804,26 +1724,7 @@
         </div>
       </div>
     </section>
-
-    <footer>
-    <div class="footer-content">
-      <div class="footer-section">
-        <h3>📞 İletişim</h3>
-        <p>Ankara Büyükşehir Belediyesi<br>İtfaiye Dairesi Başkanlığı<br>+90 312 507 4800<br>Acil: 112</p>
-      </div>
-      <div class="footer-section">
-        <h3>🚒 Araç Bilgisi</h3>
-        <p>Rosenbauer 12 Ton Mercedes<br>Su Kapasitesi: 11.000 Litre<br>Köpük Kapasitesi: 1.000 Litre</p>
-      </div>
-      <div class="footer-section">
-        <h3>⚠️ Önemli Not</h3>
-        <p>Bu kullanım kılavuzu sadece<br>bilgi amaçlıdır. Araç kullanımında<br>resmi eğitim şarttır.</p>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      © 2025 Ankara Büyükşehir Belediyesi İtfaiye Dairesi Başkanlığı - Tüm Hakları Saklıdır
-    </div>
-  </footer>
+  
 
   <script>
     // Ana değişkenler
